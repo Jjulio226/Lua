@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Lua</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ADD8E6;
+
+        }
+        #imagem {
+            display: none;
+        }
+         #imagens img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/a2/f1/a8/a2f1a8a7649b9864aaddf9f041b7ee56.jpg"> </head>
+</head>
+<body>
+    <h1>Qualidade da lua:</h1>
+    <select id="qualidade">
+        <option value="">Selecione...</option>
+        <option value="144">144p</option>
+        <option value="360">360p</option>
+        <option value="720">720p</option>
+        <option value="1080">1080p</option>
+    </select>
+    <br>
+    <div id="imagens">
+        <img id="imagem-144" src="https://i.pinimg.com/564x/a3/be/b0/a3beb04dd1cb9c0466a34ab2836519c3.jpg" style="display: none;">
+        <img id="imagem-360" src="https://i.pinimg.com/564x/9a/50/73/9a50731d3db0b93052157ba14e05ed08.jpg" style="display: none;">
+        <img id="imagem-720" src="https://i.pinimg.com/564x/c8/89/ae/c889ae40957a7f04adf0501199396e09.jpg" style="display: none;">
+        <img id="imagem-1080" src="https://i.pinimg.com/564x/a7/6a/be/a76abe72ecbcd63f35d3d6f60219fa0a.jpg" style="display: none;">
+    </div>
+    <script>
+        
+        function atualizarImagem() {
+            
+            const qualidade = document.getElementById("qualidade").value;
+            
+            
+            if (qualidade) {
+               
+                const imagens = document.querySelectorAll("#imagens img");
+                for (const imagem of imagens) {
+                    imagem.style.display = "none";
+                }
+                
+               
+                const imagemSelecionada = document.getElementById(`imagem-${qualidade}`);
+                imagemSelecionada.style.display = "block";
+            }
+        }
+        
+        document.getElementById("qualidade").addEventListener("change", atualizarImagem);
+    </script>
+</body>
+</html>
